@@ -68,9 +68,9 @@ module.exports = {
         full: "9999px",
       },
       fontFamily: {
-        headline: ["var(--font-manrope)", "Manrope", "sans-serif"],
-        body: ["var(--font-inter)", "Inter", "sans-serif"],
-        label: ["var(--font-inter)", "Inter", "sans-serif"],
+        headline: ["var(--font-space-grotesk)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
+        label: ["var(--font-inter)", "sans-serif"],
       },
     },
   },
