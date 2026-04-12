@@ -58,7 +58,7 @@ export default function Hero() {
             opacity: 1,
             y: 0,
             stagger: 0.15,
-            duration: 0.8,
+            duration: 0.5,
           },
           "-=0.6",
         );
