@@ -124,3 +124,60 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* CustomStyles for Portfolio */
+@layer utilities {
+  .concentric-circles {
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(29, 185, 84, 0.15) 0%, transparent 40%),
+      repeating-radial-gradient(
+        circle at 50% 50%,
+        transparent 0,
+        transparent 40px,
+        rgba(29, 185, 84, 0.05) 41px,
+        transparent 42px
+      );
+    background-attachment: fixed;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 20px rgba(29, 185, 84, 0.3),
+        0 0 40px rgba(29, 185, 84, 0.1);
+    }
+    50% {
+      box-shadow:
+        0 0 30px rgba(29, 185, 84, 0.5),
+        0 0 60px rgba(29, 185, 84, 0.2);
+    }
+  }
+}
