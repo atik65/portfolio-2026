@@ -28,7 +28,7 @@ module.exports = {
         "tertiary-container": "#00e0fd",
         "tertiary-dim": "#00d1ec",
         "surface-container-high": "#201f1f",
-        primary: "#1DB954",
+        primary: "#1db954",
         background: "#0e0e0e",
         "surface-container": "#1a1919",
         "primary-fixed": "#1DB954",

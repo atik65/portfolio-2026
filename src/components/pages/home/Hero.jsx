@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -187,16 +188,12 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
           <button className="group px-8 py-4 bg-primary rounded-full text-on-primary font-headline font-extra-bold uppercase text-[11px] tracking-widest flex items-center gap-2 hover:shadow-[0_0_30px_rgba(29,185,84,0.4)] transition-all duration-300 active:scale-95">
-            Collaborate with Me
-            <span className="material-symbols-outlined text-sm font-black group-hover:translate-x-1 transition-transform">
-              arrow_forward
-            </span>
+            View My Projects
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
           <button className="px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-full text-white font-headline font-extra-bold uppercase text-[11px] tracking-widest hover:bg-white/10 transition-all duration-300 active:scale-95 flex items-center gap-2">
-            <span className="material-symbols-outlined text-[18px]">
-              description
-            </span>
-            My Portfolio
+            <Download className="w-[18px] h-[18px]" />
+            Download Resume
           </button>
         </div>
       </section>

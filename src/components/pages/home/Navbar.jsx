@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { ChevronDown, Code, LayoutGrid, Medal, ArrowRight, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,9 +19,9 @@ export default function Navbar() {
   ];
 
   const portfolioItems = [
-    { label: "Skills", icon: "code", href: "#skills" },
-    { label: "Projects", icon: "grid_view", href: "#projects" },
-    { label: "Experience", icon: "military_tech", href: "#experience" },
+    { label: "Skills", icon: Code, href: "#skills" },
+    { label: "Projects", icon: LayoutGrid, href: "#projects" },
+    { label: "Experience", icon: Medal, href: "#experience" },
   ];
 
   useEffect(() => {
@@ -32,6 +33,15 @@ export default function Navbar() {
       );
     }
   }, [dropdownOpen]);
+
+  const ctaArrowRef = useRef(null);
+
+  const onCtaEnter = () => {
+    gsap.to(ctaArrowRef.current, { x: 4, duration: 0.3, ease: "power2.out" });
+  };
+  const onCtaLeave = () => {
+    gsap.to(ctaArrowRef.current, { x: 0, duration: 0.3, ease: "power2.in" });
+  };
 
   return (
     <nav className="fixed top-8 left-0 right-0 z-[1000] px-6 md:px-12">
@@ -58,9 +68,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  <span className={`material-symbols-outlined text-[18px] transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}>
-                    expand_more
-                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`} />
 
                   {/* Dropdown Menu */}
                   {dropdownOpen && (
@@ -75,9 +83,7 @@ export default function Navbar() {
                             href={item.href}
                             className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group/item"
                           >
-                            <span className="material-symbols-outlined text-white/40 group-hover/item:text-primary transition-colors text-[20px]">
-                              {item.icon}
-                            </span>
+                            <item.icon className="w-5 h-5 text-white/40 group-hover/item:text-primary transition-colors" />
                             <span className="text-white font-bold text-[13px]">
                               {item.label}
                             </span>
@@ -105,12 +111,17 @@ export default function Navbar() {
 
         {/* CTA BUTTON: Green Rounded with Icon */}
         <div className="flex items-center gap-4">
-          <button className="hidden sm:flex bg-primary text-black font-headline font-black uppercase text-[11px] tracking-widest px-8 py-4 rounded-full items-center gap-3 hover:shadow-[0_0_30px_rgba(29,185,84,0.4)] transition-all duration-300 active:scale-95">
+          <button
+            onMouseEnter={onCtaEnter}
+            onMouseLeave={onCtaLeave}
+            className="hidden sm:flex bg-primary font-bold text-white uppercase text-[11px] tracking-widest px-6 py-3 rounded-full items-center gap-3 hover:shadow-[0_0_30px_rgba(29,185,84,0.4)] transition-all duration-300 active:scale-95"
+          >
             Get Started
-            <div className="w-5 h-5 rounded-full bg-black/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-[14px] font-black">
-                arrow_forward
-              </span>
+            <div
+              ref={ctaArrowRef}
+              className="w-6 h-6 p-1 flex items-center justify-center bg-black/20 rounded-full"
+            >
+              <ArrowRight className="w-4 h-4" />
             </div>
           </button>
 
@@ -119,9 +130,7 @@ export default function Navbar() {
             className="md:hidden p-2 text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className="material-symbols-outlined text-2xl">
-              {mobileMenuOpen ? "close" : "menu"}
-            </span>
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
