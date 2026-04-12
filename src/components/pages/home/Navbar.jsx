@@ -26,6 +26,7 @@ import {
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobilePortfolioOpen, setMobilePortfolioOpen] = useState(false);
   const dropdownRef = useRef(null);
   const mobileLinksRef = useRef([]);
 
@@ -193,29 +194,58 @@ export default function Navbar() {
 
                 {/* Nav Links Card */}
                 <div className="bg-white/5 border border-white/10 rounded-[32px] p-4 flex flex-col">
-                  {navLinks.map((link, idx) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      ref={(el) => (mobileLinksRef.current[idx] = el)}
-                      className={`flex items-center gap-4 px-6 py-5 rounded-[24px] transition-all duration-300 group ${
-                        link.active
-                          ? "bg-[#12261a] text-primary"
-                          : "text-white/60 hover:text-white hover:bg-white/5"
-                      }`}
-                    >
-                      <link.icon className={`w-5 h-5 ${link.active ? "text-primary" : "text-white/40 group-hover:text-white"}`} />
-                      <span className="font-bold text-[15px] tracking-tight flex-1">
-                        {link.label}
-                      </span>
-                      {link.active && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(29,185,84,0.8)]" />
-                      )}
-                      {link.hasDropdown && (
-                        <ChevronDown className="w-4 h-4 text-white/20" />
-                      )}
-                    </Link>
-                  ))}
+                  {navLinks.map((link, idx) => {
+                    const isPortfolio = link.label === "Portfolio";
+                    return (
+                      <div key={link.label} className="flex flex-col">
+                        <div
+                          ref={(el) => (mobileLinksRef.current[idx] = el)}
+                          onClick={() => {
+                            if (isPortfolio) {
+                              setMobilePortfolioOpen(!mobilePortfolioOpen);
+                            }
+                          }}
+                        >
+                          <Link
+                            href={isPortfolio ? "#" : link.href}
+                            className={`flex items-center gap-4 px-6 py-5 rounded-[24px] transition-all duration-300 group ${
+                              link.active
+                                ? "bg-[#12261a] text-primary"
+                                : "text-white/60 hover:text-white hover:bg-white/5"
+                            }`}
+                          >
+                            <link.icon className={`w-5 h-5 ${link.active ? "text-primary" : "text-white/40 group-hover:text-white"}`} />
+                            <span className="font-bold text-[15px] tracking-tight flex-1">
+                              {link.label}
+                            </span>
+                            {link.active && (
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(29,185,84,0.8)]" />
+                            )}
+                            {link.hasDropdown && (
+                              <ChevronDown className={`w-4 h-4 text-white/20 transition-transform duration-300 ${mobilePortfolioOpen ? "rotate-180" : ""}`} />
+                            )}
+                          </Link>
+                        </div>
+
+                        {/* Nested Portfolio Items */}
+                        {isPortfolio && mobilePortfolioOpen && (
+                          <div className="flex flex-col gap-1 pl-12 pr-4 pb-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                            {portfolioItems.map((item) => (
+                              <SheetClose asChild key={item.label}>
+                                <Link
+                                  href={item.href}
+                                  className="flex items-center gap-3 py-3 text-white/40 hover:text-primary transition-colors font-bold text-sm"
+                                >
+                                  <item.icon className="w-4 h-4" />
+                                  {item.label}
+                                </Link>
+                              </SheetClose>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
