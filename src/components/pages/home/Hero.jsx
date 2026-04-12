@@ -167,7 +167,9 @@ export default function Hero() {
             </span>
           </div>{" "}
           <br />
-          <span className="text-primary italic">Software Solutions</span>
+          <span className="bg-gradient-to-r from-white via-primary/80 to-primary bg-clip-text text-transparent italic pr-2">
+            Software Solutions
+          </span>
         </h1>
 
         {/* Sub-headline */}
