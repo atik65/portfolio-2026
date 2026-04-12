@@ -63,6 +63,27 @@ export default function Hero() {
           "-=0.6",
         );
 
+      // Text Swapping Animation (Modern <-> Scalable)
+      const words = gsap.utils.toArray(".swap-word");
+      const wordTl = gsap.timeline({ repeat: -1 });
+
+      words.forEach((word, i) => {
+        wordTl
+          .to(word, {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "expo.out",
+          })
+          .to(word, {
+            y: -50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "expo.in",
+            delay: 2,
+          });
+      });
+
       // MODULE D: Background Ambient Motion
       gsap.to(bgGlowRef.current, {
         scale: 1.1,
@@ -126,8 +147,8 @@ export default function Hero() {
           ref={badgeRef}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
         >
-          <p className="font-label text-[13px] tracking-tight text-white/60 font-medium">
-            I am Kelvin Juma. A Full Stack Engineer.
+          <p className="font-label text-[18px] tracking-tight text-white/60 font-medium">
+            I am Md. Atikul Islam Atik. A Software Engineer.
           </p>
         </div>
 
@@ -136,8 +157,17 @@ export default function Hero() {
           ref={headlineRef}
           className="font-headline text-5xl md:text-7xl lg:text-[88px] font-black tracking-tight leading-[1.05] mb-8 text-white"
         >
-          Engineering Modern <br />
-          <span className="text-primary">Software Solutions</span>
+          Engineering{" "}
+          <div className="inline-block relative h-[1em] overflow-hidden align-bottom">
+            <span className="swap-word block opacity-0 translate-y-[50px]">
+              Scalable
+            </span>
+            <span className="swap-word absolute top-0 left-0 opacity-0 translate-y-[50px]">
+              Modern
+            </span>
+          </div>{" "}
+          <br />
+          <span className="text-primary italic">Software Solutions</span>
         </h1>
 
         {/* Sub-headline */}

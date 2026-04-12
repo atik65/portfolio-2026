@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: process.env.NEXT_PUBLIC_TITLE || "Kelvin Juma - Full Stack Engineer",
+  title: process.env.NEXT_PUBLIC_TITLE || "Atik | Frontend Developer",
   description:
     "Engineering modern software solutions. Transforming ideas into scalable, performant apps for real-world impact.",
 };

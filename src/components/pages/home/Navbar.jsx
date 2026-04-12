@@ -9,8 +9,8 @@ export default function Navbar() {
   const navLinks = [
     { href: "#", label: "Home", active: true },
     { href: "#about", label: "About", active: false },
-    { href: "#services", label: "Services", active: false },
-    { href: "#portfolio", label: "Portfolio", hasDropdown: true },
+    { href: "#skills", label: "Skills", active: false },
+    { href: "#projects", label: "Projects", hasDropdown: true },
     { href: "#contact", label: "Contact", active: false },
   ];
 
