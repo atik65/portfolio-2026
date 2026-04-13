@@ -40,7 +40,8 @@ export default function Navbar() {
 
   const portfolioItems = [
     { label: "Skills", icon: Code, href: "#skills" },
-    { label: "Projects", icon: LayoutGrid, href: "https://github.com/atik65" },
+    { label: "Work", icon: LayoutGrid, href: "#work" },
+    { label: "Experience", icon: Medal, href: "#experience" },
   ];
 
   const onMobileMenuOpenChange = (open) => {
