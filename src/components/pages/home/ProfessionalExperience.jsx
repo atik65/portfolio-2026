@@ -3,13 +3,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { 
-  Briefcase, 
-  MapPin, 
-  Calendar, 
-  Building2, 
+import {
+  Briefcase,
+  MapPin,
+  Calendar,
+  Building2,
   ArrowRight,
-  Star
+  Star,
 } from "lucide-react";
 
 export default function ProfessionalExperience() {
@@ -35,7 +35,7 @@ export default function ProfessionalExperience() {
             trigger: headerRef.current,
             start: "top 85%",
           },
-        }
+        },
       );
 
       // Timeline entries reveal
@@ -52,7 +52,7 @@ export default function ProfessionalExperience() {
             trigger: timelineRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
 
       // Timeline line animation
@@ -70,7 +70,7 @@ export default function ProfessionalExperience() {
             end: "bottom 90%",
             scrub: true,
           },
-        }
+        },
       );
     }, containerRef);
 
@@ -88,7 +88,7 @@ export default function ProfessionalExperience() {
         "Led the frontend architecture using Next.js and TypeScript, improving overall application stability and developer efficiency.",
         "Engineered scalable web applications focused on performance, resulting in a 20% improvement in Lighthouse scores.",
         "Mentored junior developers on clean architecture, DRY principles, and modern UI best practices.",
-        "Integrated complex REST APIs and third-party services to deliver seamless business workflows."
+        "Integrated complex REST APIs and third-party services to deliver seamless business workflows.",
       ],
     },
     {
@@ -100,29 +100,33 @@ export default function ProfessionalExperience() {
       achievements: [
         "Developed custom eCommerce solutions (MonirHomeTextile) and booking systems (MNMRidez) for global clients.",
         "Implemented end-to-end features using React, Node.js, and Django, ensuring high-quality user experiences.",
-        "Optimized database schemas and API endpoints for large-scale data handling and real-time interactions."
+        "Optimized database schemas and API endpoints for large-scale data handling and real-time interactions.",
       ],
     },
   ];
 
   return (
-    <section 
-      id="experience" 
+    <section
+      id="experience"
       ref={containerRef}
-      className="relative py-24 px-6 md:py-32 overflow-hidden bg-black"
+      className="relative py-24 px-6 md:py-16 overflow-hidden bg-black"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header (Matching established style) */}
         <div ref={headerRef} className="text-center mb-20 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mx-auto transition-all hover:border-primary/40">
             <Star className="w-3 h-3 text-primary fill-primary" />
-            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 font-headline">Career Path</p>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 font-headline">
+              Career Path
+            </p>
           </div>
           <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
             Professional <span className="text-primary italic">Experience</span>
           </h2>
           <p className="text-white/40 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            A timeline of my professional journey, highlighting my roles, responsibilities, and the impact I've delivered across various organizations.
+            A timeline of my professional journey, highlighting my roles,
+            responsibilities, and the impact I've delivered across various
+            organizations.
           </p>
         </div>
 
@@ -133,8 +137,8 @@ export default function ProfessionalExperience() {
 
           <div className="space-y-16">
             {experiences.map((exp, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="experience-entry relative pl-12 md:pl-24 group"
               >
                 {/* Timeline Dot */}
@@ -172,7 +176,10 @@ export default function ProfessionalExperience() {
 
                   <ul className="space-y-4 relative z-10">
                     {exp.achievements.map((item, i) => (
-                      <li key={i} className="flex items-start gap-4 group/bullet">
+                      <li
+                        key={i}
+                        className="flex items-start gap-4 group/bullet"
+                      >
                         <ArrowRight className="w-4 h-4 text-primary mt-1 shrink-0 group-hover/bullet:translate-x-1 transition-transform" />
                         <p className="text-white/50 leading-relaxed text-sm md:text-base">
                           {item}

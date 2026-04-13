@@ -22,6 +22,7 @@ import {
   Briefcase,
   FolderOpen,
   Mail,
+  GraduationCap,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -34,7 +35,12 @@ export default function Navbar() {
     { href: "#", label: "Home", active: true, icon: Home },
     { href: "#about", label: "About", active: false, icon: User },
     { href: "#services", label: "Services", active: false, icon: Briefcase },
-    { href: "#portfolio", label: "Portfolio", hasDropdown: true, icon: FolderOpen },
+    {
+      href: "#portfolio",
+      label: "Portfolio",
+      hasDropdown: true,
+      icon: FolderOpen,
+    },
     { href: "#contact", label: "Contact", active: false, icon: Mail },
   ];
 
@@ -42,6 +48,8 @@ export default function Navbar() {
     { label: "Skills", icon: Code, href: "#skills" },
     { label: "Work", icon: LayoutGrid, href: "#work" },
     { label: "Experience", icon: Medal, href: "#experience" },
+    { label: "Education", icon: GraduationCap, href: "#education" },
+    { label: "Process", icon: Briefcase, href: "#process" },
   ];
 
   const onMobileMenuOpenChange = (open) => {
@@ -56,7 +64,7 @@ export default function Navbar() {
             stagger: 0.1,
             duration: 0.5,
             ease: "power3.out",
-          }
+          },
         );
       }, 100);
     }
@@ -67,7 +75,7 @@ export default function Navbar() {
       gsap.fromTo(
         dropdownRef.current,
         { opacity: 0, y: 10, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out" }
+        { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out" },
       );
     }
   }, [dropdownOpen]);
@@ -102,11 +110,15 @@ export default function Navbar() {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                   className={`px-5 py-2.5 rounded-full font-bold text-[13px] tracking-tight transition-all duration-300 flex items-center gap-1.5 ${
-                    dropdownOpen ? "text-white" : "text-white/80 hover:text-white"
+                    dropdownOpen
+                      ? "text-white"
+                      : "text-white/80 hover:text-white"
                   }`}
                 >
                   {link.label}
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}
+                  />
 
                   {/* Dropdown Menu */}
                   {dropdownOpen && (
@@ -179,7 +191,8 @@ export default function Navbar() {
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
                     <h2 className="text-2xl font-headline font-black text-white tracking-tighter uppercase leading-none">
-                      Md. Atikul Islam <span className="text-primary italic">Atik</span>
+                      Md. Atikul Islam{" "}
+                      <span className="text-primary italic">Atik</span>
                     </h2>
                     <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/40 mt-1">
                       Software Engineer
@@ -214,7 +227,9 @@ export default function Navbar() {
                                 : "text-white/60 hover:text-white hover:bg-white/5"
                             }`}
                           >
-                            <link.icon className={`w-5 h-5 ${link.active ? "text-primary" : "text-white/40 group-hover:text-white"}`} />
+                            <link.icon
+                              className={`w-5 h-5 ${link.active ? "text-primary" : "text-white/40 group-hover:text-white"}`}
+                            />
                             <span className="font-bold text-[15px] tracking-tight flex-1">
                               {link.label}
                             </span>
@@ -222,7 +237,9 @@ export default function Navbar() {
                               <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(29,185,84,0.8)]" />
                             )}
                             {link.hasDropdown && (
-                              <ChevronDown className={`w-4 h-4 text-white/20 transition-transform duration-300 ${mobilePortfolioOpen ? "rotate-180" : ""}`} />
+                              <ChevronDown
+                                className={`w-4 h-4 text-white/20 transition-transform duration-300 ${mobilePortfolioOpen ? "rotate-180" : ""}`}
+                              />
                             )}
                           </Link>
                         </div>
