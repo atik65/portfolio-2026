@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Star,
 } from "lucide-react";
+import { personalData } from "@/data/personalData";
 
 export default function ProfessionalExperience() {
   const containerRef = useRef(null);
@@ -77,33 +78,11 @@ export default function ProfessionalExperience() {
     return () => ctx.revert();
   }, []);
 
-  const experiences = [
-    {
-      role: "Software Developer",
-      company: "Eutropia IT Solution",
-      location: "Dhaka, Bangladesh",
-      period: "Jan 2023 — Jan 2025",
-      type: "FULL TIME",
-      achievements: [
-        "Led the frontend architecture using Next.js and TypeScript, improving overall application stability and developer efficiency.",
-        "Engineered scalable web applications focused on performance, resulting in a 20% improvement in Lighthouse scores.",
-        "Mentored junior developers on clean architecture, DRY principles, and modern UI best practices.",
-        "Integrated complex REST APIs and third-party services to deliver seamless business workflows.",
-      ],
-    },
-    {
-      role: "Full Stack Developer",
-      company: "Independent / Freelance",
-      location: "Remote",
-      period: "Aug 2021 — Dec 2022",
-      type: "CONTRACT",
-      achievements: [
-        "Developed custom eCommerce solutions (MonirHomeTextile) and booking systems (MNMRidez) for global clients.",
-        "Implemented end-to-end features using React, Node.js, and Django, ensuring high-quality user experiences.",
-        "Optimized database schemas and API endpoints for large-scale data handling and real-time interactions.",
-      ],
-    },
-  ];
+  const experiences = personalData.experience.map(exp => ({
+    ...exp,
+    achievements: exp.description ? [exp.description] : [], // Use description as achievement for now or refine data
+    type: exp.type.toUpperCase()
+  }));
 
   return (
     <section

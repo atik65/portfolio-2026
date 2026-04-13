@@ -13,10 +13,13 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-export default function EducationCertification() {
+import { personalData } from "@/data/personalData";
+
+export default function EducationAchievements() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const timelineRef = useRef(null);
+  const achievementsRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -56,6 +59,24 @@ export default function EducationCertification() {
         }
       );
 
+      // Achievements reveal
+      gsap.fromTo(
+        achievementsRef.current.children,
+        { opacity: 0, y: 40, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: achievementsRef.current,
+            start: "top 85%",
+          },
+        }
+      );
+
       // Vertical line animation
       gsap.fromTo(
         ".edu-timeline-line",
@@ -78,34 +99,14 @@ export default function EducationCertification() {
     return () => ctx.revert();
   }, []);
 
-  const items = [
-    {
-      title: "BSc in Computer Science & Engineering",
-      institution: "University of Asia Pacific",
-      period: "2020 — 2024",
-      type: "DEGREE",
-      highlight: "Graduated with a record CGPA of 3.97, securing the top position in the department.",
-      details: [
-        "Core focus on Software Engineering, Data Structures, and AI.",
-        "Ranked top of the batch with consistent academic excellence.",
-        "Runner-up at INNOVATEX National Innovation Competition.",
-        "Awarded University Merit Scholarship for all semesters."
-      ],
-    },
-    {
-      title: "Full Stack Web Development",
-      institution: "Specialized Training",
-      period: "2022 — 2023",
-      type: "CERTIFICATION",
-      highlight: "In-depth specialization in modern web ecosystems and high-performance architectures.",
-      details: [
-        "Advanced proficiency in Next.js, React, and TypeScript.",
-        "Full-stack integration using Django and Express.js.",
-        "Specialized in clean architecture and scalable system design.",
-        "Implementation of CI/CD pipelines and DevOps best practices."
-      ],
-    },
-  ];
+  const items = personalData.education.map(edu => ({
+    title: edu.degree,
+    institution: edu.institution,
+    period: edu.period,
+    type: "ACADEMIC",
+    highlight: edu.achievements,
+    details: edu.details
+  }));
 
   return (
     <section 
@@ -114,28 +115,71 @@ export default function EducationCertification() {
       className="relative py-24 px-6 md:py-32 overflow-hidden bg-black"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Header (Exact text from user request) */}
-        <div ref={headerRef} className="text-center mb-20 space-y-4">
+        {/* Header */}
+        <div ref={headerRef} className="text-center mb-24 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mx-auto transition-all hover:border-primary/40">
             <Star className="w-3 h-3 text-primary fill-primary" />
-            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 font-headline">Academic Journey</p>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 font-headline">Academic & Excellence</p>
           </div>
           <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
-            Education & <span className="text-primary italic">Certifications</span>
+            Education & <span className="text-primary italic">Achievements</span>
           </h2>
-          <p className="text-white/40 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            My formal education and continuous learning path, building a strong foundation in software engineering, artificial intelligence, and business management.
-          </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative" ref={timelineRef}>
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary to-primary-container opacity-30 edu-timeline-line"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          {/* Left: Education Timeline */}
+          <div className="lg:col-span-7 space-y-12">
+            <h3 className="text-2xl font-headline font-black text-white/40 uppercase tracking-widest mb-12 flex items-center gap-4">
+              <GraduationCap className="w-6 h-6 text-primary" />
+              Education
+            </h3>
+            
+            <div className="relative" ref={timelineRef}>
+              <div className="absolute left-4 md:left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary to-primary-container opacity-30 edu-timeline-line"></div>
+              <div className="space-y-12">
+                {items.map((item, idx) => (
+                  <EducationItem key={idx} item={item} />
+                ))}
+              </div>
+            </div>
+          </div>
 
-          <div className="space-y-16">
-            {items.map((item, idx) => (
-              <EducationItem key={idx} item={item} />
-            ))}
+          {/* Right: Achievements Grid */}
+          <div className="lg:col-span-5 space-y-12">
+            <h3 className="text-2xl font-headline font-black text-white/40 uppercase tracking-widest mb-12 flex items-center gap-4">
+              <Award className="w-6 h-6 text-primary" />
+              Honors & Awards
+            </h3>
+
+            <div ref={achievementsRef} className="space-y-6">
+              {personalData.achievements.map((achievement, i) => (
+                <div 
+                  key={i} 
+                  className="group relative p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-primary/20 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden"
+                >
+                  {/* Decor */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[60px] -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+                      <Award className="w-6 h-6 text-primary group-hover:text-black transition-colors duration-500" />
+                    </div>
+                    
+                    <h4 className="text-xl font-headline font-black text-white mb-2 tracking-tight group-hover:text-primary transition-colors">
+                      {achievement.title}
+                    </h4>
+                    
+                    <p className="text-xs font-bold text-white/30 uppercase tracking-[0.2em] mb-4">
+                      {achievement.organization}
+                    </p>
+                    
+                    <p className="text-sm text-white/50 leading-relaxed font-medium">
+                      {achievement.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

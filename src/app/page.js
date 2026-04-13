@@ -6,7 +6,7 @@ import MyDevelopementProcess from "@/components/pages/home/MyDevelopementProcess
 import FeaturedWorks from "@/components/pages/home/FeaturedWorks";
 import Skills from "@/components/pages/home/Skills";
 import ProfessionalExperience from "@/components/pages/home/ProfessionalExperience";
-import EducationCertification from "@/components/pages/home/EducationCertification";
+import EducationAchievements from "@/components/pages/home/EducationCertification";
 import Contact from "@/components/pages/home/Contact";
 import Footer from "@/components/pages/home/Footer";
 import ScrollToTop from "@/components/pages/home/ScrollToTop";
@@ -22,7 +22,7 @@ export default function Home() {
       <FeaturedWorks />
       <Skills />
       <ProfessionalExperience />
-      <EducationCertification />
+      <EducationAchievements />
       <Contact />
       <Footer />
       <ScrollToTop />

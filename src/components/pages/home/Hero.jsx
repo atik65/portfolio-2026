@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { ArrowRight, Download } from "lucide-react";
+import { personalData } from "@/data/personalData";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -129,6 +130,7 @@ export default function Hero() {
 
   return (
     <main
+      id="home"
       ref={heroRef}
       className="relative min-h-screen flex flex-col items-center justify-center pt-24 px-6 overflow-hidden bg-black"
     >
@@ -149,7 +151,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
         >
           <p className="font-label text-[18px] tracking-tight text-white/60 font-medium">
-            I am Md. Atikul Islam Atik. A Software Engineer.
+            I am {personalData.fullName}. A {personalData.role}.
           </p>
         </div>
 
@@ -188,7 +190,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
           <a
-            href="https://github.com/atik65"
+            href={personalData.github}
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 bg-primary rounded-full text-on-primary font-extra-bold uppercase text-[11px] tracking-widest flex items-center gap-2 hover:shadow-[0_0_30px_rgba(29,185,84,0.4)] transition-all duration-300 active:scale-95 font-bold cursor-pointer"
@@ -197,7 +199,7 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="https://drive.google.com/file/d/1GeOtkQ3clz6SUd6lsFX-eLJ4nzerkT4G/view"
+            href={personalData.resume}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-full text-white font-extra-bold uppercase text-[11px] tracking-widest hover:bg-white/10 transition-all duration-300 active:scale-95 flex items-center gap-2 font-bold cursor-pointer"

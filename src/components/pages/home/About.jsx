@@ -13,6 +13,7 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
+import { personalData } from "@/data/personalData";
 
 export default function About() {
   const containerRef = useRef(null);
@@ -48,7 +49,7 @@ export default function About() {
           scale: 1,
           duration: 1.2,
           ease: "expo.out",
-        }
+        },
       );
 
       // 1.5 Stats Container Fade-up
@@ -61,7 +62,7 @@ export default function About() {
           duration: 0.6,
           ease: "power2.out",
         },
-        "-=0.8"
+        "-=0.8",
       );
 
       // 2. XP Card Pop (Subtle)
@@ -74,7 +75,7 @@ export default function About() {
           duration: 0.5,
           ease: "back.out(1.4)",
         },
-        "-=0.4"
+        "-=0.4",
       );
 
       // 3. Content Reveal
@@ -88,23 +89,29 @@ export default function About() {
           stagger: 0.1,
           ease: "power2.out",
         },
-        "-=0.6"
+        "-=0.6",
       );
 
-      // Counter animation (keeping it as it's a cool functional detail)
+      // Counter animation
       const valElements = containerRef.current.querySelectorAll(".stat-value");
       valElements.forEach((el) => {
-        const target = parseInt(el.getAttribute("data-target"));
+        const targetValue = el.getAttribute("data-target");
+        const target = parseFloat(targetValue);
         tl.fromTo(
           el,
           { innerHTML: 0 },
           {
             innerHTML: target,
             duration: 1.2,
-            snap: { innerHTML: 1 },
+            snap: { innerHTML: target % 1 === 0 ? 1 : 0.01 },
             ease: "power2.out",
+            onUpdate: function () {
+              if (target % 1 !== 0) {
+                el.innerHTML = parseFloat(el.innerHTML).toFixed(2);
+              }
+            },
           },
-          "-=0.8"
+          "-=0.8",
         );
       });
 
@@ -134,20 +141,20 @@ export default function About() {
 
   const stats = [
     { label: "Years Experience", value: "2", icon: Sparkles },
-    { label: "Projects Completed", value: "20", icon: Code },
-    { label: "Happy Customers", value: "10", icon: Globe },
-    { label: "Awards Won", value: "5", icon: Zap },
+    { label: "Major Projects", value: "20", icon: Code },
+    { label: "Stack Proficiency", value: "15", icon: Zap },
+    { label: "Academic CGPA", value: "3.94 / 4.00", icon: GraduationCap },
   ];
 
   const personalInfo = [
-    { label: "First Name", value: "Md. Atikul Islam" },
-    { label: "Last Name", value: "Atik" },
-    { label: "Age", value: "25 Years" },
+    { label: "First Name", value: personalData.firstName },
+    { label: "Last Name", value: personalData.nickname },
+    { label: "Role", value: personalData.role },
     { label: "Nationality", value: "Bangladeshi" },
-    { label: "Freelance", value: "Available" },
-    { label: "Address", value: "Dhaka, Bangladesh" },
-    { label: "Email", value: "atik.hasan.dev@gmail.com" },
-    { label: "Language", value: "Bangla, English, Hindi" },
+    { label: "Email", value: personalData.email },
+    { label: "Address", value: personalData.location },
+    { label: "Experience", value: "2+ Years" },
+    { label: "Language", value: "Bangla, English" },
   ];
 
   return (
@@ -174,7 +181,7 @@ export default function About() {
                   <div className="z-10 w-full h-full relative">
                     <Image
                       src="/images/my_avatar.png"
-                      alt="Atikul Islam Atik"
+                      alt={personalData.fullName}
                       fill
                       className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                       priority
@@ -246,14 +253,7 @@ export default function About() {
               </h2>
 
               <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-                I am{" "}
-                <span className="text-white font-bold">
-                  Md. Atikul Islam Atik
-                </span>
-                , a Software Engineer currently pursuing my BSc in CSE at
-                University of Asia Pacific. With 2 years of professional
-                experience, I specialize in building high-performance, scalable
-                web applications using the latest technologies.
+                {personalData.about.long}
               </p>
             </div>
 

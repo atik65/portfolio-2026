@@ -65,8 +65,15 @@ export default function ProjectDetails({ project, onBack }) {
       const tl = gsap.timeline();
       
       tl.from(".back-btn", { opacity: 0, x: -20, duration: 0.8, ease: "power3.out" })
-        .from(".main-title", { opacity: 0, y: 40, duration: 1, ease: "power4.out" }, "-=0.4")
-        .from(".main-desc", { opacity: 0, y: 30, duration: 1, ease: "power3.out" }, "-=0.6")
+        .from(".char", { 
+          opacity: 0, 
+          y: 70, 
+          rotateX: -90, 
+          stagger: 0.03, 
+          duration: 1, 
+          ease: "power4.out" 
+        }, "-=0.4")
+        .from(".main-desc", { opacity: 0, y: 30, duration: 1, ease: "power3.out" }, "-=0.8")
         .from(".tech-tag", { 
           opacity: 0, 
           scale: 0.8, 
@@ -155,8 +162,13 @@ export default function ProjectDetails({ project, onBack }) {
 
         {/* Hero Meta Section */}
         <div className="mb-32">
-          <h1 className="main-title text-6xl md:text-9xl font-headline font-black mb-12 tracking-tighter leading-none">
-            {data.title}<span className="text-primary">.</span>
+          <h1 className="main-title text-6xl md:text-9xl font-headline font-black mb-12 tracking-tighter leading-none flex flex-wrap">
+            {data.title.split("").map((char, i) => (
+              <span key={i} className="char inline-block">
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+            <span className="text-primary">.</span>
           </h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">

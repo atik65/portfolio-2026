@@ -20,6 +20,11 @@ import {
   Box,
   Fingerprint,
 } from "lucide-react";
+import { personalData } from "@/data/personalData";
+
+const iconMap = {
+  Code2, Terminal, Layers, Paintbrush, Database, Cpu, Layout, Globe, Server, Monitor, Box, Fingerprint, GitBranch, CheckCircle2: Box
+};
 
 export default function Skills() {
   const containerRef = useRef(null);
@@ -69,24 +74,15 @@ export default function Skills() {
     return () => ctx.revert();
   }, []);
 
-  const skills = [
-    { name: "HTML", icon: Code2 },
-    { name: "CSS", icon: Paintbrush },
-    { name: "JavaScript", icon: Cpu },
-    { name: "TypeScript", icon: Terminal, featured: true },
-    { name: "React", icon: Layers },
-    { name: "Next.js", icon: Layout },
-    { name: "Tailwind", icon: Globe },
-    { name: "Node.js", icon: Server },
-    { name: "Express", icon: Monitor },
-    { name: "Python", icon: Fingerprint, featured: true }, // Highlighted as per template
-    { name: "Django", icon: Database },
-    { name: "MongoDB", icon: Database },
-    { name: "PostgreSQL", icon: Database },
-    { name: "MySQL", icon: Database },
-    { name: "Git", icon: GitBranch },
-    { name: "Docker", icon: Box },
-  ];
+  const allSkills = [
+    ...personalData.skills.frontend,
+    ...personalData.skills.backend,
+    ...personalData.skills.tools,
+  ].map(skill => ({
+    ...skill,
+    icon: iconMap[skill.icon] || Code2,
+    featured: skill.level === "Expert"
+  }));
 
   return (
     <section
@@ -121,7 +117,7 @@ export default function Skills() {
 
         {/* Tech Grid */}
         <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {skills.map((skill, idx) => (
+          {allSkills.map((skill, idx) => (
             <div
               key={idx}
               className={`group flex items-center gap-3 px-6 py-4 rounded-full border transition-all duration-500 backdrop-blur-sm cursor-default hover:-translate-y-1.5 hover:scale-[1.02]
