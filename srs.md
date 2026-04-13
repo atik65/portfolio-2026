@@ -190,27 +190,25 @@ Professional work experience.
 
 ---
 
-# 🔹 MODULE 6: Projects Section
+# 🔹 MODULE 6: Featured Work
 
 ## Description
 
-Showcase of key projects (minimum 3)
+A premium selection of key projects demonstrating full-stack proficiency, architectural depth, and modern UI/UX execution.
 
-## Projects
+## Featured Projects
 
-### 1. MonirHomeTextile
+1. **MonirHomeTextile**: Enterprise-grade eCommerce platform built with Next.js and TypeScript, focused on home textile retail with high-performance metrics.
+2. **MNMRidez**: Sophisticated car rental system for the Australian market, featuring a multi-location booking engine and real-time fleet management.
+3. **EU Study Help Center**: Comprehensive scholarship management and student support platform helping navigate European institutional opportunities.
 
-- eCommerce platform
-- Tech: Next.js, TypeScript
+## Functional Requirements
 
-### 2. MNMRidez
-
-- Car rental system (Australia)
-- Multi-location booking system
-
-### 3. EU Study Help Center
-
-- Scholarship platform
+- High-resolution project previews (Aspect Ratio: 16:9)
+- Hover-triggered 3D scaling and shadow effects
+- Animated "View Case Study" CTAs
+- Concentric background motion for depth
+- GSAP-powered entry and scroll animations
 
 ---
 
