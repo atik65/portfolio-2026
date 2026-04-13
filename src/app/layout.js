@@ -1,6 +1,7 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import CustomRootProvider from "@/providers/CustomRootProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,7 +38,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary overflow-x-hidden`}
       >
-        {children}
+        <CustomRootProvider>{children}</CustomRootProvider>
       </body>
     </html>
   );
