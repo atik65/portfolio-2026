@@ -40,8 +40,7 @@ export default function Navbar() {
 
   const portfolioItems = [
     { label: "Skills", icon: Code, href: "#skills" },
-    { label: "Projects", icon: LayoutGrid, href: "#projects" },
-    { label: "Experience", icon: Medal, href: "#experience" },
+    { label: "Projects", icon: LayoutGrid, href: "https://github.com/atik65" },
   ];
 
   const onMobileMenuOpenChange = (open) => {
@@ -88,7 +87,7 @@ export default function Navbar() {
         <div className="flex-shrink-0">
           <Link href="/">
             <div className="w-11 h-11 bg-primary rounded-[14px] flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(29,185,84,0.3)]">
-              <span className="text-black font-black text-2xl">K</span>
+              <span className="text-black font-black text-2xl">A</span>
             </div>
           </Link>
         </div>

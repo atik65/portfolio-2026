@@ -60,35 +60,35 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: "Web Technologies",
       icon: Code2,
       skills: [
-        "React.js", "Next.js", "TypeScript", "JavaScript", 
-        "Tailwind CSS", "GSAP", "HTML5/CSS3", "Redux"
+        "Next.js", "React.js", "JavaScript", "Node.js", 
+        "Express.js", "Redux", "Zustand", "Jotai",
+        "Tailwind CSS", "Material UI", "Bootstrap", "HTML/CSS"
       ]
     },
     {
       title: "Backend & Database",
       icon: Database,
       skills: [
-        "Node.js", "Express.js", "MongoDB", "REST APIs", 
-        "Firebase", "PostreSQL", "Prisma", "Auth.js"
+        "MongoDB", "MySQL", "Firebase", "REST APIs",
+        "OOP", "DS"
       ]
     },
     {
-      title: "Tools & Workflow",
-      icon: Wrench,
-      skills: [
-        "Git & GitHub", "Figma", "VS Code", "PNPM/NPM", 
-        "Postman", "Vercel", "Docker", "Chrome DevTools"
-      ]
-    },
-    {
-      title: "Core Concepts",
+      title: "Programming",
       icon: Cpu,
       skills: [
-        "Responsive Design", "Web Performance", "SEO", "UI/UX Principles",
-        "Clean Code", "Agile", "Testing", "Accessibility"
+        "C++", "Java", "Computer Science", "Software Architecture"
+      ]
+    },
+    {
+      title: "Tools & Deploy",
+      icon: Wrench,
+      skills: [
+        "Git & GitHub", "Azure", "Linux", "NGINX",
+        "Vercel", "VS Code", "Postman"
       ]
     }
   ];
