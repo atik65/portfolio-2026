@@ -187,11 +187,11 @@ export default function Hero() {
           ref={buttonsRef}
           className="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
-          <button className="group px-8 py-4 bg-primary rounded-full text-on-primary font-headline font-extra-bold uppercase text-[11px] tracking-widest flex items-center gap-2 hover:shadow-[0_0_30px_rgba(29,185,84,0.4)] transition-all duration-300 active:scale-95">
+          <button className="group px-8 py-4 bg-primary rounded-full text-on-primary font-extra-bold uppercase text-[11px] tracking-widest flex items-center gap-2 hover:shadow-[0_0_30px_rgba(29,185,84,0.4)] transition-all duration-300 active:scale-95 font-bold">
             View My Projects
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-full text-white font-headline font-extra-bold uppercase text-[11px] tracking-widest hover:bg-white/10 transition-all duration-300 active:scale-95 flex items-center gap-2">
+          <button className="px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-full text-white font-extra-bold uppercase text-[11px] tracking-widest hover:bg-white/10 transition-all duration-300 active:scale-95 flex items-center gap-2 font-bold">
             <Download className="w-[18px] h-[18px]" />
             Download Resume
           </button>
