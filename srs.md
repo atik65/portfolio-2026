@@ -376,7 +376,29 @@ Direct communication channel
 
 ---
 
-# 8. 🚀 Future Enhancements
+# 🔹 MODULE 11: My Services
+
+## Description
+
+Professional services offered to clients and companies.
+
+## Service Categories
+
+1. **Frontend Development**: Building performant, SEO-friendly SPAs using Next.js and React.
+2. **Backend Engineering**: Developing scalable REST APIs and server-side logic (Django, Node.js).
+3. **UI/UX Implementation**: Turning designs into high-fidelity, interactive web experiences with GSAP and Tailwind CSS.
+4. **Mobile Solutions**: Crafting cross-platform mobile apps for seamless user engagement.
+5. **Cloud & DevOps**: Deploying and managing applications on Vercel/Docker with optimized CI/CD.
+
+## Functional Requirements
+
+- Service cards with icons
+- Hover states and reveal animations
+- Clear call-to-action (Hire Me)
+
+---
+
+# 12. 🚀 Future Enhancements
 
 - Blog section
 - Dark/Light mode toggle
