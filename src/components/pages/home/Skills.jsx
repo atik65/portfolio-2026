@@ -3,94 +3,89 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { 
-  Code2, 
-  Database, 
-  Wrench, 
+import {
+  Code2,
+  Terminal,
+  Layers,
+  Paintbrush,
+  Database,
   Cpu,
-  CheckCircle2
+  Rocket,
+  Server,
+  GitBranch,
+  Layout,
+  Star,
+  Globe,
+  Monitor,
+  Box,
+  Fingerprint,
 } from "lucide-react";
 
 export default function Skills() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
-  const categoriesRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-       // Header reveal
-       gsap.fromTo(
-          headerRef.current.children,
-          { opacity: 0, y: 30 },
-          {
-             opacity: 1,
-             y: 0,
-             stagger: 0.2,
-             duration: 0.8,
-             ease: "power3.out",
-             scrollTrigger: {
-                trigger: headerRef.current,
-                start: "top 85%",
-             }
-          }
-       );
+      // Header reveal
+      gsap.fromTo(
+        headerRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+          },
+        },
+      );
 
-       // Categories stagger reveal
-       gsap.fromTo(
-          categoriesRef.current.children,
-          { opacity: 0, y: 40 },
-          {
-             opacity: 1,
-             y: 0,
-             stagger: 0.2,
-             duration: 0.8,
-             ease: "power3.out",
-             scrollTrigger: {
-                trigger: categoriesRef.current,
-                start: "top 80%",
-             }
-          }
-       );
+      // Tech Grid staggered entry
+      gsap.fromTo(
+        gridRef.current.children,
+        { opacity: 0, scale: 0.8, y: 20 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          stagger: 0.05,
+          duration: 0.6,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 90%",
+          },
+        },
+      );
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
-  const skillCategories = [
-    {
-      title: "Web Technologies",
-      icon: Code2,
-      skills: [
-        "Next.js", "React.js", "JavaScript", "Node.js", 
-        "Express.js", "Redux", "Zustand", "Jotai",
-        "Tailwind CSS", "Material UI", "Bootstrap", "HTML/CSS"
-      ]
-    },
-    {
-      title: "Backend & Database",
-      icon: Database,
-      skills: [
-        "MongoDB", "MySQL", "Firebase", "REST APIs",
-        "OOP", "DS"
-      ]
-    },
-    {
-      title: "Programming",
-      icon: Cpu,
-      skills: [
-        "C++", "Java", "Computer Science", "Software Architecture"
-      ]
-    },
-    {
-      title: "Tools & Deploy",
-      icon: Wrench,
-      skills: [
-        "Git & GitHub", "Azure", "Linux", "NGINX",
-        "Vercel", "VS Code", "Postman"
-      ]
-    }
+  const skills = [
+    { name: "HTML", icon: Code2 },
+    { name: "CSS", icon: Paintbrush },
+    { name: "JavaScript", icon: Cpu },
+    { name: "TypeScript", icon: Terminal, featured: true },
+    { name: "React", icon: Layers },
+    { name: "Next.js", icon: Layout },
+    { name: "Tailwind", icon: Globe },
+    { name: "Node.js", icon: Server },
+    { name: "Express", icon: Monitor },
+    { name: "Python", icon: Fingerprint, featured: true }, // Highlighted as per template
+    { name: "Django", icon: Database },
+    { name: "MongoDB", icon: Database },
+    { name: "PostgreSQL", icon: Database },
+    { name: "MySQL", icon: Database },
+    { name: "Git", icon: GitBranch },
+    { name: "Docker", icon: Box },
   ];
 
   return (
@@ -99,58 +94,61 @@ export default function Skills() {
       ref={containerRef}
       className="relative py-24 px-6 md:py-32 bg-black overflow-hidden"
     >
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none"></div>
+      {/* Dynamic Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 opacity-20 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/20 rounded-full blur-[2px]"></div>
+      </div>
 
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
         <div ref={headerRef} className="text-center mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mx-auto">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60">My Stack</p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mx-auto transition-all hover:border-primary/40">
+            <Star className="w-3 h-3 text-primary fill-primary" />
+            <span className="font-headline font-bold text-[10px] tracking-[0.2em] text-white/80">
+              SKILLS & TECHNOLOGIES
+            </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter uppercase leading-tight">
+
+          <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tighter text-white mb-6">
             Technical <span className="text-primary italic">Arsenal</span>
           </h2>
-          <p className="text-white/40 max-w-xl mx-auto text-sm md:text-base">
-            I use a modern and performant stack to build scalable applications that deliver exceptional user experiences.
+
+          <p className="text-white/40 text-lg max-w-xl mx-auto font-light leading-relaxed">
+            Leveraging cutting-edge technologies to build performant, scalable,
+            and visually stunning digital experiences.
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div ref={categoriesRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, idx) => (
-            <div 
-              key={idx} 
-              className="group relative bg-[#0b0c0b] border border-white/5 rounded-[32px] p-8 hover:border-primary/20 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(29,185,84,0.05)]"
+        {/* Tech Grid */}
+        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {skills.map((skill, idx) => (
+            <div
+              key={idx}
+              className={`group flex items-center gap-3 px-6 py-4 rounded-full border transition-all duration-500 backdrop-blur-sm cursor-default hover:-translate-y-1.5 hover:scale-[1.02]
+                ${
+                  skill.featured
+                    ? "bg-primary/5 border-primary shadow-[0_0_20px_rgba(29,185,84,0.3)] hover:shadow-[0_10px_30px_rgba(29,185,84,0.4)]"
+                    : "bg-white/5 border-white/5 hover:border-primary/40 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+                }`}
             >
-              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-500">
-                <category.icon className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
-              </div>
-              
-              <h3 className="text-xl font-headline font-black text-white mb-6 uppercase tracking-tight">
-                {category.title}
-              </h3>
-
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, sIdx) => (
-                  <div 
-                    key={sIdx}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/5 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 group/skill"
-                  >
-                    <CheckCircle2 className="w-3 h-3 text-primary/40 group-hover/skill:text-primary transition-colors" />
-                    <span className="text-[11px] font-bold text-white/60 group-hover/skill:text-white transition-colors">{skill}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Decorative accent */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                 <div className="w-1 h-1 rounded-full bg-primary animate-ping"></div>
-              </div>
+              <skill.icon
+                className={`w-5 h-5 ${skill.featured ? "text-primary" : "text-primary/70 group-hover:text-primary transition-colors"}`}
+              />
+              <span className="font-headline font-bold text-sm tracking-tight text-white/90">
+                {skill.name}
+              </span>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-32 text-center group">
+          <p className="font-headline text-2xl md:text-4xl font-bold tracking-tight text-white">
+            You've Got A Challenge?{" "}
+            <span className="text-primary italic cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all duration-500 group-hover:after:w-full">
+              Let's Talk!
+            </span>
+          </p>
         </div>
       </div>
     </section>

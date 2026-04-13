@@ -15,54 +15,56 @@ export default function MyDevelopementProcess() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      // Header Animation
-      tl.fromTo(
+      // Header reveal (Matching Skills.jsx)
+      gsap.fromTo(
         headerRef.current.children,
         { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          stagger: 0.1, 
-          duration: 0.8, 
-          ease: "power2.out" 
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+          },
         }
       );
 
       // Timeline Animation
-      tl.fromTo(
+      gsap.fromTo(
         timelineRef.current.querySelectorAll(".process-step"),
         { opacity: 0, scale: 0.9, y: 40 },
-        { 
-          opacity: 1, 
-          scale: 1, 
-          y: 0, 
-          stagger: 0.2, 
-          duration: 0.8, 
-          ease: "expo.out" 
-        },
-        "-=0.4"
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: timelineRef.current,
+            start: "top 80%",
+          },
+        }
       );
 
       // Bento Animation
-      tl.fromTo(
+      gsap.fromTo(
         bentoRef.current.children,
         { opacity: 0, y: 20 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          stagger: 0.1, 
-          duration: 0.8, 
-          ease: "power2.out" 
-        },
-        "-=0.4"
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: bentoRef.current,
+            start: "top 80%",
+          },
+        }
       );
     }, containerRef);
 
@@ -100,15 +102,16 @@ export default function MyDevelopementProcess() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative">
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-[10px] font-black tracking-[0.2em] mb-6">
-            <Star className="w-3 h-3 fill-primary" />
-            HOW IT WORKS
+        {/* Header (Matching Skills.jsx style) */}
+        <div ref={headerRef} className="text-center mb-20 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mx-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60">How It Works</p>
           </div>
-          <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter text-white mb-6">
-            My Development Process<span className="text-primary">.</span>
+          <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
+            Development <span className="text-primary italic">Process</span>
           </h2>
-          <p className="text-white/50 max-w-2xl text-base md:text-xl">
+          <p className="text-white/40 max-w-xl mx-auto text-sm md:text-base">
             A streamlined approach to turning complex ideas into high-performance digital solutions with technical precision.
           </p>
         </div>

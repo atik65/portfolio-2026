@@ -15,37 +15,38 @@ export default function MyServices() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      tl.fromTo(
+      // Header reveal (Matching Skills.jsx)
+      gsap.fromTo(
         headerRef.current.children,
         { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          stagger: 0.1, 
-          duration: 0.8, 
-          ease: "power2.out" 
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+          },
         }
       );
 
-      tl.fromTo(
+      // Cards Animation
+      gsap.fromTo(
         [grid1Ref.current.children, grid2Ref.current.children],
         { opacity: 0, y: 40 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          stagger: 0.1, 
-          duration: 0.8, 
-          ease: "power2.out" 
-        },
-        "-=0.4"
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: grid1Ref.current,
+            start: "top 80%",
+          },
+        }
       );
     }, containerRef);
 
@@ -94,16 +95,16 @@ export default function MyServices() {
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/2 rounded-full blur-[100px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div ref={headerRef} className="max-w-3xl mb-16 md:mb-24 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
+        {/* Header (Matching Skills.jsx style) */}
+        <div ref={headerRef} className="text-center mb-20 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mx-auto">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
             <p className="text-[10px] uppercase tracking-widest font-bold text-white/60">Services</p>
           </div>
-          <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter mb-6">
-            My Services<span className="text-primary">.</span>
+          <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
+            Professional <span className="text-primary italic">Services</span>
           </h2>
-          <p className="text-white/50 text-base md:text-xl leading-relaxed max-w-2xl">
+          <p className="text-white/40 max-w-xl mx-auto text-sm md:text-base">
             Delivering end-to-end software solutions from conceptualization to deployment, ensuring performance, scalability, and exceptional user journeys.
           </p>
         </div>

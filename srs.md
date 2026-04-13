@@ -145,41 +145,25 @@ Detailed personal and professional background.
 
 ---
 
-# 🔹 MODULE 4: Skills Section
+# 🔹 MODULE 4: Technical Arsenal
 
 ## Description
 
-Visual representation of technical skills.
+A high-impact visual grid showcasing core competencies and specialized technologies used in development.
 
-## Categories
+## Tech Categories
 
-### Frontend
-
-- React
-- Next.js
-- TypeScript
-
-### Backend
-
-- Django (DRF)
-- Express.js
-
-### Programming
-
-- JavaScript
-- Python
-
-### Tools & Others
-
-- Git
-- Docker
-- Linux
-- Testing (Jest, Cypress, Selenium)
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express, Django, Python
+- **Database**: PostgreSQL, MongoDB, MySQL
+- **DevOps**: Docker, Git, CI/CD pipelines
 
 ## Functional Requirements
 
-- Graphical UI (progress bars / cards / icons)
-- Hover effects
+- Interactive pill-shaped badges
+- Highlighted 'Featured' skill cards (e.g., Python)
+- GSAP-powered staggered reveal animations
+- Responsive 2-column (mobile) to 4-column (desktop) grid
 
 ---
 
