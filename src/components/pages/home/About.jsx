@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
@@ -170,10 +171,14 @@ export default function About() {
               <div className="w-full h-full flex items-center justify-center p-8 md:p-12">
                 <div className="relative w-full h-full border-4 border-dashed border-white/5 rounded-[24px] md:rounded-[30px] flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent"></div>
-                  <div className="z-10 text-center">
-                    <span className="text-white/20 text-[80px] md:text-[120px] font-black italic select-none uppercase">
-                      Atik
-                    </span>
+                  <div className="z-10 w-full h-full relative">
+                    <Image
+                      src="/images/my_avatar.png"
+                      alt="Atikul Islam Atik"
+                      fill
+                      className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                      priority
+                    />
                   </div>
                 </div>
               </div>
