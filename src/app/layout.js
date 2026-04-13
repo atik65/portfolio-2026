@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: process.env.NEXT_PUBLIC_TITLE || "Atik | Frontend Developer",
+  title: process.env.NEXT_PUBLIC_TITLE || "Atik | Software Engineer",
   description:
     "Engineering modern software solutions. Transforming ideas into scalable, performant apps for real-world impact.",
 };
