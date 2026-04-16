@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { personalData } from "@/data/personalData";
 import { TextRepel } from "@/components/ui/text-repel";
+import { GithubCalendar } from "@/components/ui/github-calendar";
 
 const iconMap = {
   Code2,
@@ -154,8 +155,13 @@ export default function Skills() {
           ))}
         </div>
 
+        {/* github metircs */}
+        <div className="mt-12  flex justify-center">
+          <GithubCalendar username="atik65" />
+        </div>
+
         {/* Bottom CTA */}
-        <div className="mt-32 text-center group">
+        <div className="mt-12 text-center group">
           <p className="font-headline text-2xl md:text-4xl font-bold tracking-tight text-white">
             You've Got A Challenge?{" "}
             <span className="text-primary italic cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all duration-500 group-hover:after:w-full">
