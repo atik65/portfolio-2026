@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { 
-  GraduationCap, 
-  Award, 
-  Calendar, 
-  ChevronDown, 
+import {
+  GraduationCap,
+  Award,
+  Calendar,
+  ChevronDown,
   Star,
   Bookmark,
-  CheckCircle2
+  CheckCircle2,
 } from "lucide-react";
 
 import { personalData } from "@/data/personalData";
@@ -39,7 +39,7 @@ export default function EducationAchievements() {
             trigger: headerRef.current,
             start: "top 85%",
           },
-        }
+        },
       );
 
       // Timeline entries reveal
@@ -56,7 +56,7 @@ export default function EducationAchievements() {
             trigger: timelineRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
 
       // Achievements reveal
@@ -74,7 +74,7 @@ export default function EducationAchievements() {
             trigger: achievementsRef.current,
             start: "top 85%",
           },
-        }
+        },
       );
 
       // Vertical line animation
@@ -92,25 +92,25 @@ export default function EducationAchievements() {
             end: "bottom 90%",
             scrub: true,
           },
-        }
+        },
       );
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
-  const items = personalData.education.map(edu => ({
+  const items = personalData.education.map((edu) => ({
     title: edu.degree,
     institution: edu.institution,
     period: edu.period,
     type: "ACADEMIC",
     highlight: edu.achievements,
-    details: edu.details
+    details: edu.details,
   }));
 
   return (
-    <section 
-      id="education" 
+    <section
+      id="education"
       ref={containerRef}
       className="relative py-24 px-6 md:py-32 overflow-hidden bg-black"
     >
@@ -119,10 +119,13 @@ export default function EducationAchievements() {
         <div ref={headerRef} className="text-center mb-24 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mx-auto transition-all hover:border-primary/40">
             <Star className="w-3 h-3 text-primary fill-primary" />
-            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 font-headline">Academic & Excellence</p>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 font-headline">
+              Academic & Excellence
+            </p>
           </div>
           <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
-            Education & <span className="text-primary italic">Achievements</span>
+            Education &{" "}
+            <span className="text-primary italic">Achievements</span>
           </h2>
         </div>
 
@@ -133,9 +136,9 @@ export default function EducationAchievements() {
               <GraduationCap className="w-6 h-6 text-primary" />
               Education
             </h3>
-            
+
             <div className="relative" ref={timelineRef}>
-              <div className="absolute left-4 md:left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary to-primary-container opacity-30 edu-timeline-line"></div>
+              <div className="absolute left-5 md:left-9 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary to-primary-container opacity-30 edu-timeline-line"></div>
               <div className="space-y-12">
                 {items.map((item, idx) => (
                   <EducationItem key={idx} item={item} />
@@ -153,26 +156,26 @@ export default function EducationAchievements() {
 
             <div ref={achievementsRef} className="space-y-6">
               {personalData.achievements.map((achievement, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="group relative p-8 rounded-[32px] bg-white/[0.02] border border-white/5 hover:border-primary/20 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden"
                 >
                   {/* Decor */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[60px] -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
-                  
+
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
                       <Award className="w-6 h-6 text-primary group-hover:text-black transition-colors duration-500" />
                     </div>
-                    
+
                     <h4 className="text-xl font-headline font-black text-white mb-2 tracking-tight group-hover:text-primary transition-colors">
                       {achievement.title}
                     </h4>
-                    
+
                     <p className="text-xs font-bold text-white/30 uppercase tracking-[0.2em] mb-4">
                       {achievement.organization}
                     </p>
-                    
+
                     <p className="text-sm text-white/50 leading-relaxed font-medium">
                       {achievement.description}
                     </p>
@@ -202,11 +205,11 @@ function EducationItem({ item }) {
           {/* Left Column: Icon & Date (Inspired by image) */}
           <div className="flex flex-col items-start gap-4 shrink-0">
             <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-500">
-               <GraduationCap className="w-7 h-7 text-primary" />
+              <GraduationCap className="w-7 h-7 text-primary" />
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-white/60">
-               <Calendar className="w-3 h-3 text-primary" />
-               {item.period}
+              <Calendar className="w-3 h-3 text-primary" />
+              {item.period}
             </div>
           </div>
 
@@ -218,10 +221,10 @@ function EducationItem({ item }) {
             <h3 className="text-3xl font-headline font-black text-white mb-3 tracking-tight group-hover:text-primary transition-colors">
               {item.title}
             </h3>
-            
+
             <div className="flex items-center gap-2 text-white/40 font-bold text-xs uppercase tracking-wider mb-6">
-               <Bookmark className="w-3.5 h-3.5 text-primary" />
-               {item.institution}
+              <Bookmark className="w-3.5 h-3.5 text-primary" />
+              {item.institution}
             </div>
 
             <p className="text-white/50 leading-relaxed text-sm md:text-base mb-8 max-w-2xl">
@@ -230,26 +233,32 @@ function EducationItem({ item }) {
 
             {/* View Course Highlights Accordion */}
             <div className="border-t border-white/5 pt-6">
-               <button 
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="flex items-center gap-2 text-primary font-bold text-sm group/btn"
-               >
-                  <span>View Course Highlights</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-               </button>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center gap-2 text-primary font-bold text-sm group/btn"
+              >
+                <span>View Course Highlights</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                />
+              </button>
 
-               <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'} overflow-hidden`}>
-                  <div className="min-h-0">
-                    <ul className="space-y-4 pl-2">
-                       {item.details.map((detail, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                             <CheckCircle2 className="w-4 h-4 text-primary mt-1 shrink-0" />
-                             <span className="text-white/40 text-sm leading-relaxed">{detail}</span>
-                          </li>
-                       ))}
-                    </ul>
-                  </div>
-               </div>
+              <div
+                className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"} overflow-hidden`}
+              >
+                <div className="min-h-0">
+                  <ul className="space-y-4 pl-2">
+                    {item.details.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-primary mt-1 shrink-0" />
+                        <span className="text-white/40 text-sm leading-relaxed">
+                          {detail}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

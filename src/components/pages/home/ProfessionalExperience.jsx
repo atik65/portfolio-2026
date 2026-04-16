@@ -78,10 +78,10 @@ export default function ProfessionalExperience() {
     return () => ctx.revert();
   }, []);
 
-  const experiences = personalData.experience.map(exp => ({
+  const experiences = personalData.experience.map((exp) => ({
     ...exp,
     achievements: exp.description ? [exp.description] : [], // Use description as achievement for now or refine data
-    type: exp.type.toUpperCase()
+    type: exp.type.toUpperCase(),
   }));
 
   return (
@@ -112,7 +112,7 @@ export default function ProfessionalExperience() {
         {/* Experience Timeline */}
         <div className="relative" ref={timelineRef}>
           {/* Vertical Timeline Line */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary to-primary-container opacity-30 timeline-line"></div>
+          <div className="absolute left-5 md:left-9 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary to-primary-container opacity-30 timeline-line"></div>
 
           <div className="space-y-16">
             {experiences.map((exp, idx) => (
