@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Github, Linkedin, MessageCircle } from "lucide-react";
 import { Signature } from "@/components/ui/signature";
+import { EyeTracking } from "@/components/ui/eye-tracking";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#050505] border-t border-white/[0.03] pt-24 pb-12 overflow-hidden text-body">
       <div className="max-w-7xl mx-auto px-6 md:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16 mb-12">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-8">
             <Link href="/" className="group flex items-center gap-4">
@@ -111,13 +112,34 @@ export default function Footer() {
           </div>
 
           {/* Ready to start */}
-          <div className="space-y-8">
+          <div className="space-y-8 ">
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-40">
               Ready to start?
             </h4>
             <p className="text-white font-headline text-2xl font-bold tracking-tight hover:text-primary cursor-pointer transition-colors">
               Let's Talk
             </p>
+
+            {/* eye */}
+            <div className="hidden sm:block">
+              <EyeTracking
+                eyeSize={70}
+                gap={10}
+                irisColor="#1DB954"
+                irisColorSecondary="#1DB954"
+                blinkInterval={3000}
+              />
+            </div>
+
+            <div className="block sm:hidden">
+              <EyeTracking
+                eyeSize={70}
+                gap={10}
+                irisColor="#1DB954"
+                // irisColorSecondary="#1DB954"
+                blinkInterval={3000}
+              />
+            </div>
           </div>
         </div>
 
