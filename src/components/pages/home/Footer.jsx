@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Github, Linkedin, MessageCircle } from "lucide-react";
+import { Signature } from "@/components/ui/signature";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,16 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-8">
             <Link href="/" className="group flex items-center gap-4">
               <div className="w-11 h-11 bg-primary rounded-[14px] flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(29,185,84,0.3)] shrink-0">
-                <span className="text-black font-black text-2xl">A</span>
+                <span className="text-black font-black text-2xl">
+                  <Signature
+                    text="A"
+                    fontSize={14}
+                    duration={1.5}
+                    inView={true}
+                    once={false}
+                    className="cursor-pointer text-black pt-2 px-2"
+                  />
+                </span>
               </div>
               <h2 className="text-3xl font-headline font-black text-white tracking-tighter">
                 Atikul <span className="text-primary italic">Islam</span>

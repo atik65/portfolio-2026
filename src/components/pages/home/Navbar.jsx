@@ -27,6 +27,7 @@ import {
 
 import { usePathname, useRouter } from "next/navigation";
 import { personalData } from "@/data/personalData";
+import { Signature } from "@/components/ui/signature";
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -164,14 +165,34 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-4 md:top-8 left-0 right-0 z-[1000] px-5 md:px-12 transition-all duration-300">
-      <div className="max-w-[1440px] mx-auto flex items-center justify-between bg-white/[0.04] backdrop-blur-2xl md:bg-transparent md:backdrop-blur-none pl-3.5 pr-2 py-2 md:p-0 rounded-[24px] md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
+      <div className="max-w-[1440px] mx-auto flex items-center justify-between bg-white/[0.04] backdrop-blur-2xl md:bg-transparent md:backdrop-blur-none  md:pl-3.5 pr-2 md:py-2 md:p-0 rounded-full md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
         {/* LOGO */}
-        <div className="flex-shrink-0">
-          <Link href="/">
+        <div
+          onClick={() => {
+            router.push("/");
+
+            // and scroll to top
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+          className="flex-shrink-0 bg-transparent md:bg-[#0b0c0b]/80 md:backdrop-blur-2xl md:rounded-full max-w-36 md:shadow-2xl px-2  md:px-5 pt-2"
+        >
+          {/* <Link href="/">
             <div className="w-11 h-11 bg-primary rounded-[14px] flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(29,185,84,0.3)]">
               <span className="text-black font-black text-2xl">A</span>
             </div>
-          </Link>
+          </Link> */}
+
+          <Signature
+            text="Atik"
+            fontSize={16}
+            duration={1.5}
+            inView={true}
+            once={false}
+            className="cursor-pointer py-1 md:py-0 text-primary md:text-white"
+          />
         </div>
 
         {/* DESKTOP NAV */}
