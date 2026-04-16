@@ -157,7 +157,7 @@ export default function Skills() {
 
         {/* github metircs */}
         <div className="mt-12  flex justify-center">
-          <GithubCalendar username="atik65" />
+          <GithubCalendar variant="minimal" username="atik65" />
         </div>
 
         {/* Bottom CTA */}
