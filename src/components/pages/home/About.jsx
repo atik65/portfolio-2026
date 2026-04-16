@@ -14,6 +14,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { personalData } from "@/data/personalData";
+import { TextRepel } from "@/components/ui/text-repel";
 
 export default function About() {
   const containerRef = useRef(null);
@@ -247,9 +248,12 @@ export default function About() {
               </div>
 
               <h2 className="text-3xl md:text-5xl lg:text-7xl font-headline font-black text-white tracking-tighter leading-[1.1]">
-                Engineering <span className="text-primary italic">Modern</span>{" "}
+                <TextRepel text="Engineering" />{" "}
+                <span className="text-primary italic">
+                  <TextRepel text="Modern" />
+                </span>{" "}
                 <br className="hidden lg:block" />
-                Software Solutions
+                <TextRepel text="Software Solutions" />
               </h2>
 
               <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">

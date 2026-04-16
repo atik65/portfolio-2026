@@ -21,9 +21,23 @@ import {
   Fingerprint,
 } from "lucide-react";
 import { personalData } from "@/data/personalData";
+import { TextRepel } from "@/components/ui/text-repel";
 
 const iconMap = {
-  Code2, Terminal, Layers, Paintbrush, Database, Cpu, Layout, Globe, Server, Monitor, Box, Fingerprint, GitBranch, CheckCircle2: Box
+  Code2,
+  Terminal,
+  Layers,
+  Paintbrush,
+  Database,
+  Cpu,
+  Layout,
+  Globe,
+  Server,
+  Monitor,
+  Box,
+  Fingerprint,
+  GitBranch,
+  CheckCircle2: Box,
 };
 
 export default function Skills() {
@@ -78,10 +92,10 @@ export default function Skills() {
     ...personalData.skills.frontend,
     ...personalData.skills.backend,
     ...personalData.skills.tools,
-  ].map(skill => ({
+  ].map((skill) => ({
     ...skill,
     icon: iconMap[skill.icon] || Code2,
-    featured: skill.level === "Expert"
+    featured: skill.level === "Expert",
   }));
 
   return (
@@ -106,7 +120,10 @@ export default function Skills() {
           </div>
 
           <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tighter text-white mb-6">
-            Technical <span className="text-primary italic">Arsenal</span>
+            <TextRepel text="Technical" />
+            <span className="text-primary italic ps-3">
+              <TextRepel text="Arsenal" />
+            </span>
           </h2>
 
           <p className="text-white/40 text-lg max-w-xl mx-auto font-light leading-relaxed">

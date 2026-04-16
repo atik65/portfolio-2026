@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { MoveRight } from "lucide-react";
+import { TextRepel } from "@/components/ui/text-repel";
 
 export default function FeaturedWorks() {
   const containerRef = useRef(null);
@@ -77,7 +78,10 @@ export default function FeaturedWorks() {
             </p>
           </div>
           <h2 className="text-4xl md:text-7xl font-headline font-black text-white tracking-tighter leading-tight">
-            Featured <span className="text-primary italic">Work</span>
+            <TextRepel text="Featured" />
+            <span className="text-primary italic ps-3">
+              <TextRepel text="Work" />
+            </span>
           </h2>
           <p className="text-white/40 max-w-xl mx-auto text-sm md:text-base">
             A selection of my recent full-stack applications, showcasing complex

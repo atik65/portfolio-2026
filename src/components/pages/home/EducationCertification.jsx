@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { personalData } from "@/data/personalData";
+import { TextRepel } from "@/components/ui/text-repel";
 
 export default function EducationAchievements() {
   const containerRef = useRef(null);
@@ -124,8 +125,10 @@ export default function EducationAchievements() {
             </p>
           </div>
           <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
-            Education &{" "}
-            <span className="text-primary italic">Achievements</span>
+            <TextRepel text="Education &" />
+            <span className="text-primary italic ps-3">
+              <TextRepel text="Achievements" />
+            </span>
           </h2>
         </div>
 

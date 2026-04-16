@@ -12,6 +12,7 @@ import {
   Star,
 } from "lucide-react";
 import { personalData } from "@/data/personalData";
+import { TextRepel } from "@/components/ui/text-repel";
 
 export default function ProfessionalExperience() {
   const containerRef = useRef(null);
@@ -100,7 +101,10 @@ export default function ProfessionalExperience() {
             </p>
           </div>
           <h2 className="text-4xl md:text-6xl font-headline font-black text-white tracking-tighter leading-tight">
-            Professional <span className="text-primary italic">Experience</span>
+            <TextRepel text="Professional" />
+            <span className="text-primary italic ps-3">
+              <TextRepel text="Experience" />
+            </span>
           </h2>
           <p className="text-white/40 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
             A timeline of my professional journey, highlighting my roles,
