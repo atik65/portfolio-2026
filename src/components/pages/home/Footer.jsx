@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16 mb-12">
           {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
             <Link href="/" className="group flex items-center gap-4">
               <div className="w-11 h-11 bg-primary rounded-[14px] flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(29,185,84,0.3)] shrink-0">
                 <span className="text-black font-black text-2xl">
@@ -36,7 +36,7 @@ export default function Footer() {
               Engineering modern and scalable software solutions. Transforming
               ideas into scalable, performant apps for real-world impact.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center md:justify-start gap-4">
               {[
                 { icon: Github, href: "https://github.com/atik65" },
                 { icon: Linkedin, href: "https://linkedin.com/in/atik65" },
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
 
           {/* Discover */}
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-40">
               Discover
             </h4>
@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
 
           {/* Expertise */}
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-40">
               Expertise
             </h4>
@@ -93,7 +93,7 @@ export default function Footer() {
           </div>
 
           {/* Journey & CTA */}
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-40">
               Journey
             </h4>
@@ -112,7 +112,7 @@ export default function Footer() {
           </div>
 
           {/* Ready to start */}
-          <div className="space-y-8 ">
+          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em] opacity-40">
               Ready to start?
             </h4>
