@@ -177,7 +177,7 @@ export default function Navbar() {
               behavior: "smooth",
             });
           }}
-          className="flex-shrink-0 bg-transparent md:bg-[#0b0c0b]/80 md:backdrop-blur-2xl md:rounded-full max-w-30 md:shadow-2xl px-2 md:px-2 pt-2"
+          className="flex-shrink-0  md:bg-[#0b0c0b]/80 md:backdrop-blur-2xl md:rounded-full max-w-30 md:shadow-2xl px-2 md:px-2 pt-2"
         >
           {/* <Link href="/">
             <div className="w-11 h-11 bg-primary rounded-[14px] flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(29,185,84,0.3)]">
@@ -191,7 +191,7 @@ export default function Navbar() {
             duration={1.5}
             inView={true}
             once={false}
-            className="cursor-pointer py-1 md:pt-1 text-primary md:text-white"
+            className="cursor-pointer py-1 md:pt-1 text-primary md:text-white "
           />
         </div>
 

@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { useEffect, useId, useState } from "react";
 import { motion } from "framer-motion";
 import opentype from "opentype.js";
@@ -13,7 +13,7 @@ export function Signature({
   className,
   inView = false,
   once = true,
-  fontUrl
+  fontUrl,
 }) {
   const [paths, setPaths] = useState([]);
   const [width, setWidth] = useState(300);
@@ -27,8 +27,8 @@ export function Signature({
     async function load() {
       try {
         let font;
-        const fontPaths = fontUrl 
-          ? [fontUrl] 
+        const fontPaths = fontUrl
+          ? [fontUrl]
           : [
               "/LastoriaBoldRegular.otf",
               "./LastoriaBoldRegular.otf",
@@ -88,7 +88,8 @@ export function Signature({
       initial="hidden"
       whileInView={inView ? "visible" : undefined}
       animate={inView ? undefined : "visible"}
-      viewport={{ once }}>
+      viewport={{ once }}
+    >
       <defs>
         <mask id={maskId} maskUnits="userSpaceOnUse">
           {paths.map((d, i) => (
@@ -112,7 +113,8 @@ export function Signature({
               }}
               vectorEffect="non-scaling-stroke"
               strokeLinecap="round"
-              strokeLinejoin="round" />
+              strokeLinejoin="round"
+            />
           ))}
         </mask>
       </defs>
@@ -137,10 +139,13 @@ export function Signature({
           }}
           vectorEffect="non-scaling-stroke"
           strokeLinecap="butt"
-          strokeLinejoin="round" />
+          strokeLinejoin="round"
+        />
       ))}
-      <g mask={`url(#${maskId})`}>
-        {paths.map((d, i) => <path key={i} d={d} fill={color} />)}
+      <g className="hidden sm:block" mask={`url(#${maskId})`}>
+        {paths.map((d, i) => (
+          <path key={i} d={d} fill={color} />
+        ))}
       </g>
     </motion.svg>
   );
